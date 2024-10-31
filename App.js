@@ -5,15 +5,14 @@ import * as Font from "expo-font";
 import { Asset } from "expo-asset";
 import { Block, GalioProvider } from "galio-framework";
 import { NavigationContainer } from "@react-navigation/native";
-
-// Before rendering any navigation stack
 import { enableScreens } from "react-native-screens";
-enableScreens();
-
 import Screens from "./navigation/Screens";
 import { Images, articles, argonTheme } from "./constants";
 
-// cache app images
+// Ativar otimizações de desempenho
+enableScreens();
+
+// Cache de imagens do aplicativo
 const assetImages = [
   Images.Onboarding,
   Images.LogoOnboarding,
@@ -23,7 +22,8 @@ const assetImages = [
   Images.iOSLogo,
   Images.androidLogo,
 ];
-// cache product images
+
+// Cache de imagens de produtos
 articles.map((article) => assetImages.push(article.image));
 
 function cacheImages(images) {
@@ -42,16 +42,13 @@ export default function App() {
   useEffect(() => {
     async function prepare() {
       try {
-        //Load Resources
         await _loadResourcesAsync();
-        // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync({
           ArgonExtra: require("./assets/font/argon.ttf"),
         });
       } catch (e) {
         console.warn(e);
       } finally {
-        // Tell the application to render
         setAppIsReady(true);
       }
     }
@@ -69,7 +66,7 @@ export default function App() {
   }, [appIsReady]);
 
   if (!appIsReady) {
-    return null;
+    return null; // ou um componente de carregamento, se preferir
   }
 
   return (
