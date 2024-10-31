@@ -24,6 +24,14 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "Argon React Native, based on Argon Design System. Coded by Creative Tim"
+    "description": "Argon React Native, based on Argon Design System. Coded by Creative Tim",
+    "extra": {
+      "eas": {
+        "projectId": "0f43c445-09a8-4693-ad19-a35a3898a489"
+      }
+    },
+    "android": {
+      "package": "com.mrjoncastro.argonfreereactnative"
+    }
   }
 }
